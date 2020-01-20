@@ -1,7 +1,8 @@
-package com.diegogutierrez.seventhart
+package com.diegogutierrez.seventhart.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.diegogutierrez.seventhart.R
 
 class MainActivity : AppCompatActivity() {
 

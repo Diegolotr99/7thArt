@@ -1,0 +1,3 @@
+package com.diegogutierrez.usecases
+
+class GetPopularMovies
