@@ -49,6 +49,8 @@ local.properties
 .externalNativeBuild
 .cxx
 
+apikey.properties
+
 # App folder
 app/google-services.json
 app/release/

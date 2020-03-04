@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.location.Geocoder
 import android.location.Location
+import android.util.Log
 import com.diegogutierrez.data.source.LocationDataSource
 import com.google.android.gms.location.LocationServices
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -26,6 +27,7 @@ class PlayServicesLocationDataSource(application: Application) : LocationDataSou
         val addresses = this?.let {
             geocoder.getFromLocation(latitude, longitude, 1)
         }
+
         return addresses?.firstOrNull()?.countryCode
     }
 }

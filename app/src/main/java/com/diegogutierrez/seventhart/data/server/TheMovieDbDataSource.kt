@@ -6,9 +6,9 @@ import com.diegogutierrez.domain.Movie
 
 class TheMovieDbDataSource(private val theMovieDb: TheMovieDb) : RemoteDataSource {
 
-    override suspend fun getPopularMovies(apiKey: String, region: String): List<Movie> =
+    override suspend fun getPopularMovies(apiKey: String, region: String, page: Int): List<Movie> =
         theMovieDb.service
-            .listPopularMoviesAsync(apiKey, region).await()
+            .listPopularMoviesAsync(apiKey, region, page).await()
             .results
             .map { it.toDomainMovie() }
 }

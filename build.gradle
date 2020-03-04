@@ -10,6 +10,8 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.google.gms:google-services:4.3.3'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.0.0-beta02'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -32,8 +34,11 @@ allprojects {
                 playServicesLocation: 'com.google.android.gms:play-services-location:17.0.0',
                 material            : 'com.google.android.material:material:1.0.0',
                 roomRuntime         : 'androidx.room:room-runtime:2.2.1',
+                pagingRuntime       : 'androidx.paging:paging-runtime:2.1.1',
                 glide               : 'com.github.bumptech.glide:glide:4.9.0',
-                dexter              : 'com.karumi:dexter:5.0.0'
+                dexter              : 'com.karumi:dexter:5.0.0',
+                firebase            : 'com.google.firebase:firebase-analytics:17.2.2',
+                crashlytics         : 'com.google.firebase:firebase-crashlytics:17.0.0-beta01'
         ]
 
         androidKaptLibs = [
@@ -51,7 +56,9 @@ allprojects {
                 retrofit                 : 'com.squareup.retrofit2:retrofit:2.6.0',
                 retrofitGsonConverter    : 'com.squareup.retrofit2:converter-gson:2.6.0',
                 retrofitCoroutinesAdapter: 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2',
-                koin                     : "org.koin:koin-android-viewmodel:2.0.1"
+                koin                     : "org.koin:koin-android-viewmodel:2.0.1",
+                speedDialMenuButton      : "com.leinardi.android:speed-dial:3.1.1"
+
         ]
 
         testLibs = [

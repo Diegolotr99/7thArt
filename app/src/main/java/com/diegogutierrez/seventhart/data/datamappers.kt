@@ -7,6 +7,7 @@ import com.diegogutierrez.seventhart.data.server.Movie as ServerMovie
 fun Movie.toRoomMovie(): RoomMovie =
     RoomMovie(
         id,
+        tmdbId,
         title,
         overview,
         releaseDate,
@@ -16,11 +17,13 @@ fun Movie.toRoomMovie(): RoomMovie =
         originalTitle,
         popularity,
         voteAverage,
-        favorite
+        favorite,
+        watchLater
     )
 
 fun RoomMovie.toDomainMovie(): Movie = Movie(
     id,
+    tmdbId,
     title,
     overview,
     releaseDate,
@@ -30,20 +33,23 @@ fun RoomMovie.toDomainMovie(): Movie = Movie(
     originalTitle,
     popularity,
     voteAverage,
-    favorite
+    favorite,
+    watchLater
 )
 
 fun ServerMovie.toDomainMovie(): Movie =
     Movie(
         0,
+        id,
         title,
         overview,
         releaseDate,
-        posterPath,
-        backdropPath ?: posterPath,
+        posterPath ?: "",
+        backdropPath ?: posterPath ?: "",
         originalLanguage,
         originalTitle,
         popularity,
         voteAverage,
-        false
+        favorite = false,
+        watchLater = false
     )

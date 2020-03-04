@@ -2,10 +2,16 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
+def apiKeyPropertiesFile = rootProject.file("apikey.properties")
+def apiKeyProperties = new Properties()
+apiKeyProperties.load(new FileInputStream(apiKeyPropertiesFile))
 
 android {
     compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    buildToolsVersion "29.0.3"
     defaultConfig {
         applicationId "com.diegogutierrez.seventhart"
         minSdkVersion 21
@@ -16,8 +22,35 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-common.pro', 'proguard-debug.pro'
+        }
+    }
+    flavorDimensions "environment"
+    productFlavors {
+        dev {
+            versionNameSuffix "-dev"
+            manifestPlaceholders = [ appLabel: "SeventhArt - Dev" ]
+            buildConfigField "String", "TMDB_API_KEY", apiKeyProperties['THE_MOVIE_DB_API_KEY']
+            buildConfigField "String", "CONFIG_ENV", "\"Development\""
+        }
+
+        staging {
+            versionNameSuffix "-staging"
+            manifestPlaceholders = [ appLabel: "SeventhArt - Staging" ]
+            buildConfigField "String", "TMDB_API_KEY", apiKeyProperties['THE_MOVIE_DB_API_KEY']
+            buildConfigField "String", "CONFIG_ENV", "\"Staging\""
+        }
+
+        prod {
+            manifestPlaceholders = [ appLabel: "SeventhArt" ]
+            buildConfigField "String", "TMDB_API_KEY", apiKeyProperties['THE_MOVIE_DB_API_KEY']
+            buildConfigField "String", "CONFIG_ENV", "\"Production\""
         }
     }
     compileOptions {

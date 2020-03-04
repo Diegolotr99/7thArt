@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="2dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="8dp"
+    app:cardCornerRadius="8dp">
+
+    <com.diegogutierrez.seventhart.ui.common.AspectRatioImageView
+        android:id="@+id/movieCover"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:ratio="1.5"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/transparent_card"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="0dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <TextView
+            android:id="@+id/movieTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:maxLines="4"
+            android:minLines="1"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+            android:textSize="18sp"
+            tools:text="@tools:sample/lorem" />
+
+    </FrameLayout>
+</androidx.cardview.widget.CardView>
