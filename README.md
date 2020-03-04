@@ -7,4 +7,4 @@ Diego Gutierrez Castro
 
 App interacting with TheMovieDB api. 
 
-Using Clean Architecture, Dependency Injection, Tests
+Using Clean Architecture, Dependency Injection with Koin, Tests
