@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "966728759900",
+    "firebase_url": "https://seventhart-d4f4d.firebaseio.com",
+    "project_id": "seventhart-d4f4d",
+    "storage_bucket": "seventhart-d4f4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966728759900:android:d31a957ffc9d12176d8499",
+        "android_client_info": {
+          "package_name": "com.diegogutierrez.seventhart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "966728759900-048f7rs10muf7h83b07bqtbpvurn9uni.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHPuNw4Uymlk7NFeFQWOcTopC9AyMMiPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "966728759900-048f7rs10muf7h83b07bqtbpvurn9uni.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
