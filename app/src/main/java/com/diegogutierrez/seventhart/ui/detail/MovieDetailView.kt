@@ -2,18 +2,19 @@ package com.diegogutierrez.seventhart.ui.detail
 
 import android.content.Context
 import android.util.AttributeSet
-import android.widget.TextView
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.text.bold
+import androidx.core.text.buildSpannedString
 import com.diegogutierrez.domain.Movie
 
 class MovieDetailView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : TextView(context, attrs, defStyleAttr) {
+) : AppCompatTextView(context, attrs, defStyleAttr) {
 
     fun setMovie(movie: Movie) = with(movie) {
-        text = androidx.core.text.buildSpannedString {
+        text = buildSpannedString {
 
             bold { append("Original language: ") }
             appendln(originalLanguage)

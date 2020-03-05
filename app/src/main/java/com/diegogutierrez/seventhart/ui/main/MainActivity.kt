@@ -14,8 +14,8 @@ import com.diegogutierrez.seventhart.ui.detail.DetailActivity
 import com.diegogutierrez.seventhart.ui.main.MainViewModel.UiModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.toolbar.view.*
-import org.koin.android.scope.currentScope
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.scope.lifecycleScope
+import org.koin.androidx.viewmodel.scope.viewModel
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private val coarsePermissionRequester =
         PermissionRequester(this, ACCESS_COARSE_LOCATION)
 
-    private val viewModel: MainViewModel by currentScope.viewModel(this)
+    private val viewModel: MainViewModel by lifecycleScope.viewModel(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

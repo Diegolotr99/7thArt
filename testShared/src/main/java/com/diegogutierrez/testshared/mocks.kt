@@ -3,6 +3,7 @@ import com.diegogutierrez.domain.Movie
 
 val mockedMovie = Movie(
     0,
+    0,
     "Title",
     "Overview",
     "01/01/2025",
@@ -12,5 +13,6 @@ val mockedMovie = Movie(
     "Title",
     5.0,
     5.1,
-    false
+    false,
+    watchLater = false
 )

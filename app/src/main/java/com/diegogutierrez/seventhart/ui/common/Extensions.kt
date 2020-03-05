@@ -11,7 +11,7 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
+
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.diegogutierrez.seventhart.SeventhArtApp
@@ -51,8 +51,15 @@ inline fun <VH : RecyclerView.ViewHolder, T> RecyclerView.Adapter<VH>.basicDiffU
         }).dispatchUpdatesTo(this@basicDiffUtil)
     }
 
+
+// With ViewModelFactory
+// val viewModel = ViewModelProvider(this, YourViewModelFactory).get(YourViewModel::class.java)
+
+// Without ViewModelFactory
+// val viewModel = ViewModelProvider(this).get(YourViewModel::class.java)
+
 inline fun <reified T : ViewModel> FragmentActivity.getViewModel(): T {
-    return ViewModelProviders.of(this)[T::class.java]
+    return ViewModelProvider(this).get(T::class.java)
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -62,7 +69,7 @@ inline fun <reified T : ViewModel> FragmentActivity.getViewModel(crossinline fac
         override fun <U : ViewModel> create(modelClass: Class<U>): U = factory() as U
     }
 
-    return ViewModelProviders.of(this, vmFactory)[T::class.java]
+    return ViewModelProvider(this, vmFactory).get(T::class.java)
 }
 
 val Context.app: SeventhArtApp
