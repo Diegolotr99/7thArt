@@ -11,12 +11,10 @@ import com.diegogutierrez.seventhart.R
 import com.diegogutierrez.seventhart.ui.common.loadUrl
 import com.diegogutierrez.seventhart.ui.common.showLongSnackBar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import com.leinardi.android.speeddial.SpeedDialActionItem
-import com.leinardi.android.speeddial.SpeedDialView
 import kotlinx.android.synthetic.main.activity_detail.*
-import org.koin.android.scope.currentScope
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.scope.lifecycleScope
+import org.koin.androidx.viewmodel.scope.viewModel
 import org.koin.core.parameter.parametersOf
 
 class DetailActivity : AppCompatActivity() {
@@ -25,7 +23,7 @@ class DetailActivity : AppCompatActivity() {
         const val MOVIE = "DetailActivity:movie"
     }
 
-    private val viewModel: DetailViewModel by currentScope.viewModel(this) {
+    private val viewModel: DetailViewModel by lifecycleScope.viewModel(this) {
         parametersOf(intent.getIntExtra(MOVIE, -1))
     }
 

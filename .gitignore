@@ -120,6 +120,11 @@ fabric.properties
 fastlane/screenshots/**/*.png
 fastlane/screenshots/screenshots.html
 
+# Sonar lint
+.idea/sonarlint/*
+.idea/sonarlint/issuestore/*
+.idea/sonarIssues.xml
+
 # scan temporary files
 
 # End of https://www.gitignore.io/api/android,fastlane,crashlytics
