@@ -1,5 +1,7 @@
 # 7thArt
 
+![SeventhArt](https://i.ibb.co/xDp2V5w/7th-art-logo-circle-200.png)
+
 Project for Architect Coders course. 
 
 Diego Gutierrez Castro
